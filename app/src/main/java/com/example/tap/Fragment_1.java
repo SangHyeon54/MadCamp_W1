@@ -29,8 +29,6 @@ import java.util.ArrayList;
  */
 
 
-
-
 public class Fragment_1 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
