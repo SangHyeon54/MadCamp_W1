@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,15 +12,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import static androidx.recyclerview.widget.RecyclerView.*;
-
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
     private ArrayList<ContactData> myDataList = null;
+    private ArrayList<ContactData> filteredList = null;
 
     ContactAdapter(ArrayList<ContactData> dataList)
     {
-        myDataList = dataList;
+        this.myDataList = dataList;
+        this.filteredList = dataList;
     }
 
     @Override
@@ -39,9 +40,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public void onBindViewHolder(ViewHolder viewHolder, int position)
     {
         //ViewHolder가 관리하는 View에 position에 해당하는 데이터 바인딩
-        viewHolder.imageView.setImageResource(myDataList.get(position).getImage());
-        viewHolder.name.setText(myDataList.get(position).getName());
-        viewHolder.number.setText(myDataList.get(position).getNumber());
+        viewHolder.imageView.setImageResource(filteredList.get(position).getImage());
+        viewHolder.name.setText(filteredList.get(position).getName());
+        viewHolder.number.setText(filteredList.get(position).getNumber());
 
     }
 
@@ -49,7 +50,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public int getItemCount()
     {
         //Adapter가 관리하는 전체 데이터 개수 반환
-        return myDataList.size();
+        return filteredList.size();
     }
 
     public ContactData getItem(int position){
@@ -103,6 +104,36 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     public interface OnItemClickListener {
         void onItemCLick(View v, int position) ;
+    }
+
+    //@Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String charString = constraint.toString();
+                if(charString.isEmpty()) {
+                    filteredList = myDataList;
+                } else {
+                    ArrayList<ContactData> filteringList = new ArrayList<>();
+                    for(ContactData name : myDataList) {
+                        if(name.getName().toLowerCase().contains(charString.toLowerCase())) {
+                            filteringList.add(name);
+                        }
+                    }
+                    filteredList = filteringList;
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                filteredList = (ArrayList<ContactData>)results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
 }

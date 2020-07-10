@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -56,6 +59,7 @@ public class Fragment_1 extends Fragment {
     private ContactAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<ContactData> mMyData;
+    EditText editText;
 
     public Fragment_1() {
         // Required empty public constructor
@@ -96,7 +100,7 @@ public class Fragment_1 extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
         */
         super.onCreate(savedInstanceState);
-
+        initDataset();
         /*
         ContactAdapter mAdapter = new ContactAdapter(mMyData);
 
@@ -116,18 +120,36 @@ public class Fragment_1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        initDataset();
-
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.scrollToPosition(0);
+        //mRecyclerView.scrollToPosition(0);
         mAdapter = new ContactAdapter(mMyData);
         mRecyclerView.setAdapter(mAdapter);
+
+        editText = (EditText) view.findViewById(R.id.edittext);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                mAdapter.getFilter().filter(charSequence);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
 
         mAdapter.setOnItemClickListner(new ContactAdapter.OnItemClickListner() {
             @Override
@@ -144,16 +166,17 @@ public class Fragment_1 extends Fragment {
         }
         );
 
+
+
         return view;
     }
+
 
     private void initDataset() {
         mMyData = new ArrayList<ContactData>();
         String temp = "image1";
 
-        mMyData.add(new ContactData(getResources().getIdentifier(temp, "drawable", getActivity().getPackageName()), "이상현", "010-1234-5678"));
-        mMyData.add(new ContactData(R.drawable.image1, "홍길동",  "010-1234-5678"));
-        mMyData.add(new ContactData(R.drawable.image1, "강씨",  "010-1234-5678"));
+        //mMyData.add(new ContactData(getResources().getIdentifier(temp, "drawable", getActivity().getPackageName()), "이상현", "010-1234-5678"));
 
         AssetManager assetManager= getContext().getAssets();
 
@@ -180,7 +203,7 @@ public class Fragment_1 extends Fragment {
 
                 String name= jo.getString("name");
                 String number= jo.getString("contact");
-                mMyData.add(new ContactData(R.drawable.image1, name,  number));
+                mMyData.add(new ContactData(R.drawable.img_df, name,  number));
             }
 
         } catch (IOException e) {e.printStackTrace();}
@@ -194,4 +217,22 @@ public class Fragment_1 extends Fragment {
         });
 
     }
+    /*
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
+
+     */
+
 }
