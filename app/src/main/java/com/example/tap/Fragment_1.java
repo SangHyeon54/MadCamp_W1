@@ -29,6 +29,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 /**
@@ -149,8 +152,8 @@ public class Fragment_1 extends Fragment {
         String temp = "image1";
 
         mMyData.add(new ContactData(getResources().getIdentifier(temp, "drawable", getActivity().getPackageName()), "이상현", "010-1234-5678"));
-        mMyData.add(new ContactData(R.drawable.image1, "RALLYIST (5/50)",  "010-1234-5678"));
-        mMyData.add(new ContactData(R.drawable.image1, "TEST (10/30)",  "010-1234-5678"));
+        mMyData.add(new ContactData(R.drawable.image1, "홍길동",  "010-1234-5678"));
+        mMyData.add(new ContactData(R.drawable.image1, "강씨",  "010-1234-5678"));
 
         AssetManager assetManager= getContext().getAssets();
 
@@ -182,6 +185,13 @@ public class Fragment_1 extends Fragment {
 
         } catch (IOException e) {e.printStackTrace();}
         catch (JSONException e) {e.printStackTrace(); }
+
+        Collections.sort(mMyData, new Comparator<ContactData>() {
+            @Override
+            public int compare(ContactData a, ContactData b) {
+                return a.getName().compareTo(b.getName());
+            }
+        });
 
     }
 }
