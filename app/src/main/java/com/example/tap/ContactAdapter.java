@@ -52,6 +52,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         return myDataList.size();
     }
 
+    public ContactData getItem(int position){
+        return myDataList.get(position);
+    }
+
     public interface OnItemClickListner {
         void onItemClick(View v, int pos);
     }
@@ -61,6 +65,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public void setOnItemClickListner(OnItemClickListner listner) {
         this.contactListener = listner;
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
@@ -83,9 +88,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION)
                     {
+                        // 리스너 객체의 메서드 호출
+                        notifyItemChanged(pos) ;
                         if (contactListener != null){
                             contactListener.onItemClick(v,pos);
                         }
+
                     }
                 }
             });
