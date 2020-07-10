@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 
 import static androidx.recyclerview.widget.RecyclerView.*;
 
-public class ContactAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
     private ArrayList<ContactData> myDataList = null;
 
@@ -49,4 +51,50 @@ public class ContactAdapter extends RecyclerView.Adapter<ViewHolder> {
         //Adapter가 관리하는 전체 데이터 개수 반환
         return myDataList.size();
     }
+
+    public interface OnItemClickListner {
+        void onItemClick(View v, int pos);
+    }
+
+    private OnItemClickListner contactListener = null;
+
+    public void setOnItemClickListner(OnItemClickListner listner) {
+        this.contactListener = listner;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView name;
+        TextView number;
+
+        ViewHolder(View itemView)
+        {
+            super(itemView);
+
+            imageView = itemView.findViewById(R.id.imageView2);
+            name = itemView.findViewById(R.id.name);
+            number = itemView.findViewById(R.id.number);
+
+            itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = getAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION)
+                    {
+                        if (contactListener != null){
+                            contactListener.onItemClick(v,pos);
+                        }
+                    }
+                }
+            });
+        }
+
+    }
+
+    public interface OnItemClickListener {
+        void onItemCLick(View v, int position) ;
+    }
+
 }

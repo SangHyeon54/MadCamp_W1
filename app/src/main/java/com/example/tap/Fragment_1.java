@@ -93,6 +93,16 @@ public class Fragment_1 extends Fragment {
         */
         super.onCreate(savedInstanceState);
         initDataset();
+        /*
+        mAdapter.setOnItemClickListner(
+                new ContactAdapter.OnItemClickListner(){
+                    @Override
+                    public void onItemClick(View v, int pos) {
+
+                    }
+                }
+                );
+         */
     }
 
     @Override
@@ -126,7 +136,7 @@ public class Fragment_1 extends Fragment {
         mMyData = new ArrayList<>();
         String temp = "image1";
 
-        mMyData.add(new ContactData(getResources().getIdentifier(temp, "drawable", getActivity().getPackageName()), "JOY MINI (48/50)", "010-1234-5678"));
+        mMyData.add(new ContactData(getResources().getIdentifier(temp, "drawable", getActivity().getPackageName()), "이상현", "010-1234-5678"));
         mMyData.add(new ContactData(R.drawable.image1, "RALLYIST (5/50)",  "010-1234-5678"));
         mMyData.add(new ContactData(R.drawable.image1, "TEST (10/30)",  "010-1234-5678"));
 
