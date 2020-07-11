@@ -1,12 +1,22 @@
 package com.example.tap;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.Toast;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +33,7 @@ public class Fragment_2 extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public Fragment_2() {
         // Required empty public constructor
@@ -59,6 +70,25 @@ public class Fragment_2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_2, null) ;
+        GridView gridView=(GridView) view.findViewById(R.id.gridView01);
+        gridView.setAdapter(new ImageAdapter(getActivity()));
+
+        // 이벤트 처리를 위한 부분
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(getActivity(), ImageActivity.class);
+
+                intent.putExtra("img_num",position);
+                startActivity(intent);
+
+            }
+
+        });
+
+
+        return view;
     }
 }
