@@ -27,6 +27,11 @@ public class ContactData {
         return this.number;
     }
 
+    public String getNumber_raw()
+    {
+        return this.number.replaceAll("-", "");
+    }
+
     public void setImage(int image)
     {
         this.image = image;

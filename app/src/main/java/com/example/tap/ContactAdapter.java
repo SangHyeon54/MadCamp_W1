@@ -120,6 +120,12 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                         if(name.getName().toLowerCase().contains(charString.toLowerCase())) {
                             filteringList.add(name);
                         }
+                        else if(name.getNumber().toLowerCase().contains(charString.toLowerCase())) {
+                            filteringList.add(name);
+                        }
+                        else if(name.getNumber_raw().toLowerCase().contains(charString.toLowerCase())) {
+                            filteringList.add(name);
+                        }
                     }
                     filteredList = filteringList;
                 }
