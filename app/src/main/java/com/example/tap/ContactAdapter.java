@@ -54,7 +54,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     }
 
     public ContactData getItem(int position){
-        return myDataList.get(position);
+        return filteredList.get(position);
     }
 
     public interface OnItemClickListner {
