@@ -4,6 +4,8 @@
     package="com.example.tap">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
     <meta-data android:name="com.kakao.sdk.AppKey" android:value="8976817780d1d073ccf55c27aa254ac6"/>
     <application
         android:allowBackup="true"

@@ -203,6 +203,12 @@ public class RouletActivity extends AppCompatActivity {
                         intent.putExtra("menu",text);
                         startActivity(intent);
                     }
+                })
+                .setNegativeButton("다시 고르기", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        layoutRoulette.setRotation(360 - initAngle);
+                    }
                 });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();

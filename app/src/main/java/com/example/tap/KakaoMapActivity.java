@@ -104,7 +104,9 @@ public class KakaoMapActivity extends AppCompatActivity implements MapView.Curre
         progressDialog.setMessage("Please wait.....");
         progressDialog.show();
 
-        //getJSON();
+        getJSON();
+
+        mMapView.setZoomLevel(4,false);
 
     }
 
