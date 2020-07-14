@@ -27,6 +27,8 @@
             android:id="@+id/newitem"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:fontFamily="@font/fontstyle"
+
             />
 
         <Button
@@ -35,13 +37,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnAdd"
             android:onClick="mOnClick"
+            android:fontFamily="@font/fontstyle"
             />
-       <!-- <Button
+   <!--     <Button
             android:text="Modify"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/btnMod"
             android:onClick="mOnClick"
+            android:fontFamily="@font/fontstyle"
             />-->
         <Button
             android:text="DELETE"
@@ -49,6 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/btnDelete"
             android:onClick="mOnClick"
+            android:fontFamily="@font/fontstyle"
             />
 
     </LinearLayout>
@@ -58,7 +63,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:choiceMode="singleChoice" />
+        android:choiceMode="singleChoice"
+        android:fontFamily="@font/fontstyle"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,7 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="mOnClick"
-            android:text="@string/go_roulettet" />
+            android:text="@string/go_roulettet"
+            android:fontFamily="@font/fontstyle"/>
 
 
     </LinearLayout>

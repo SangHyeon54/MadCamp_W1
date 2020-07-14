@@ -42,7 +42,7 @@
             android:shadowDx="2.0"
             android:shadowDy="3.0"
             android:shadowRadius="5.0"
-            android:text="@string/start"
+            android:text="START"
             android:textColor="#ffffff"
             android:gravity="center"
             android:textSize="30dp" />
