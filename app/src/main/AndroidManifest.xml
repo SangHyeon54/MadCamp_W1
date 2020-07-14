@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tap">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <meta-data android:name="com.kakao.sdk.AppKey" android:value="8976817780d1d073ccf55c27aa254ac6"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -36,6 +38,13 @@
         </activity>
 
         <activity android:name=".RouletActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".KakaoMapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

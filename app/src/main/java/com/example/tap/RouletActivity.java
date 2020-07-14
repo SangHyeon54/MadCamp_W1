@@ -191,14 +191,17 @@ public class RouletActivity extends AppCompatActivity {
         return (int)(r * maxNumber);
     }
     // if you want use AlertDialog then use this
-    private void buildAlert(String text) {
+    private void buildAlert(final String text) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("반박시 딱밤")
-                .setMessage( text + " (으)로 결정!")
+                .setMessage( text + " (으)로 주변 검색")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        layoutRoulette.setRotation(360 - initAngle);
+                        //layoutRoulette.setRotation(360 - initAngle);
+                        Intent intent = new Intent(getApplicationContext(), KakaoMapActivity.class);
+                        intent.putExtra("menu",text);
+                        startActivity(intent);
                     }
                 });
         AlertDialog alertDialog = builder.create();
