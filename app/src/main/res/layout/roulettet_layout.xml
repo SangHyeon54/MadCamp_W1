@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/food_background4">
+
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/red02"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:id="@+id/layoutRoulette"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/background_roulette"
+        android:orientation="vertical">
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnRotate"
+        android:layout_width="189dp"
+        android:layout_height="75dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/spinbtn_design"
+        android:fontFamily="@font/fontstyle"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="5"
+        android:text="spin"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+   <!-- <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Result : "
+        android:textSize="32sp"/>-->
+</LinearLayout>

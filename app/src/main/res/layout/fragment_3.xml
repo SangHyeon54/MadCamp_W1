@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:context=".Fragment_3">
+    android:background="@drawable/food_background2"
+    tools:context=".Fragment_3"
+    >
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        >
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:height="400dp"
+        android:textSize="40dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:shadowColor="#000000"
+        android:shadowDx="5.0"
+        android:shadowDy="3.0"
+        android:shadowRadius="7.0"
+        android:id="@+id/text3"
+        android:text="@string/text03"
+        android:fontFamily="@font/fontstyle"
+        />
+
+        <Button
+            android:id="@+id/BUTTON_START"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/button_design"
+            android:fontFamily="@font/fontstyle"
+            android:shadowDx="2.0"
+            android:shadowDy="3.0"
+            android:shadowRadius="5.0"
+            android:text="@string/start"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("연락처"));
         tabs.addTab(tabs.newTab().setText("갤러리"));
-        tabs.addTab(tabs.newTab().setText("----"));
+        tabs.addTab(tabs.newTab().setText("뭐먹을래"));
         tabs.setTabGravity(tabs.GRAVITY_FILL);
 
         //Adapter

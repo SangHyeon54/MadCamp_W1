@@ -27,9 +27,7 @@ public class ImageViewPagerAdapter extends PagerAdapter {
 
     public ImageViewPagerAdapter(Context context) {
         this.context = context;
-
     }
-
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {

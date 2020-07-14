@@ -6,4 +6,10 @@
     <string name="Tap2">Tap22</string>
     <string name="back">back</string>
     <string name="test">test</string>
+    <string name="start">start</string>
+    <string name="add">add</string>
+    <string name="modify">modify</string>
+    <string name="delete">delete</string>
+    <string name="go_roulettet">Go Roulettet!</string>
+    <string name="text03"><![CDATA[결정장애를 위한\n메뉴 & 맛집 추천]]></string>
 </resources>

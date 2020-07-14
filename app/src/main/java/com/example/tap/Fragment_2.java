@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +75,8 @@ public class Fragment_2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_2, null) ;
         GridView gridView=(GridView) view.findViewById(R.id.gridView01);
         gridView.setAdapter(new ImageAdapter(getActivity()));
+      //  RecyclerView recyclerView=(RecyclerView) view.findViewById(R.id.recycler_images);
+
 
         // 이벤트 처리를 위한 부분
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
