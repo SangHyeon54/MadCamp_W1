@@ -9,12 +9,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
             checkRunTimePermission();
         }
+
+        //loading
+        Intent intent=new Intent(this,LoadingActivity.class);
+        startActivity(intent);
+
 
         //Tablayout
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);

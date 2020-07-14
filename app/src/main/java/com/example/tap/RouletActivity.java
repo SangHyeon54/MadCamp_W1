@@ -260,7 +260,7 @@ public class RouletActivity extends AppCompatActivity {
                 paint.setStyle(Paint.Style.FILL_AND_STROKE);
                 paint.setAntiAlias(true);
                 paint.setTextAlign(Paint.Align.CENTER);
-          //      tf=Typeface.createFromAsset(getAssets(),"hanna.ttf");
+                tf=Typeface.createFromAsset(getAssets(),"hanna.ttf");
                 canvas.drawArc(rectF, temp, sweepAngle, true, paint);
 
                 float medianAngle = (temp + (sweepAngle / 2f)) * (float) Math.PI / 180f;
@@ -276,7 +276,7 @@ public class RouletActivity extends AppCompatActivity {
                 float textX = (centerX + arcCenterX) / 2;
                 float textY = (centerY + arcCenterY) / 2;
 
-         //       paint.setTypeface(tf);
+                paint.setTypeface(tf);
                 canvas.drawText(MENU.get(i), textX, textY, paint);
                 temp += sweepAngle;
             }

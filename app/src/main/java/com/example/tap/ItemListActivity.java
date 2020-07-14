@@ -109,3 +109,34 @@ public class ItemListActivity extends AppCompatActivity {
 
 }
 
+/*// MODIFY 버튼 클릭시
+
+            case R.id.btnMod:
+                int count, checked ;
+                String item;
+               // count = adapter.getCount() ;
+                count=listview.getCount();
+                //선택된 아이템 listview에서 ed로 올리기
+                    //ed에 listview텍스트 받아서 올리고
+                item=listview.getItemAtPosition(listview.getCheckedItemPos)
+                    //listview의 아이템 삭제
+                //다 수정하면 add버튼으로 넣기
+                if (count > 0) {
+                    // 현재 선택된 아이템의 position 획득.
+                    checked = listview.getCheckedItemPosition();
+
+
+                    if (checked > -1 && checked < count) {
+                        // 아이템 수정
+                        item=items.get(checked);
+                        ed.setText(item);
+                     //   items.set(checked, Integer.toString(checked+1) + "번 아이템 수정") ;
+
+                        // listview 갱신
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            break;
+
+*/
+ 
